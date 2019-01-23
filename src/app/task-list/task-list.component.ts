@@ -10,7 +10,11 @@ import { Task } from '../models/task.model'
 export class TaskListComponent  {
   @Input() childTaskList: Task[];
   @Output() clickSender = new EventEmitter();
+  filterByCompleteness: string ="incompleteTasks";
 
+  onChange(optionFromMenu){
+    this.filterByCompleteness = optionFromMenu;
+  }
   editButtonClicked(taskToEdit: Task){
     this.clickSender.emit(taskToEdit);
   }
@@ -22,6 +26,9 @@ export class TaskListComponent  {
     } else {
       return "bg-info";
     }
+  }
+  toggleDone(clickedTask: Task, setCompleteness: boolean){
+    clickedTask.done = setCompleteness;
   }
 
 

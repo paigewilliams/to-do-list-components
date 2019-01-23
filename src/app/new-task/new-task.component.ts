@@ -10,7 +10,7 @@ export class NewTaskComponent {
   @Output() sendTask = new EventEmitter();
 
   submitForm(description: string, priority: number){
-    let newTask: Task = new Task(description, parseInt(priority));
+    let newTask: Task = new Task(description, priority);
     this.sendTask.emit(newTask);
   }
 
