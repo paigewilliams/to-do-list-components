@@ -21,10 +21,16 @@ export class AppComponent  {
   ];
   editTask(clickedTask){
     this.selectedTask = clickedTask;
-  
+
   }
+
 
   finishedEditing(){
     this.selectedTask = null;
+  }
+
+  addTask(newTask: Task){
+    this.masterTaskList.push(newTask);
+    console.log(this.masterTaskList);
   }
 }
