@@ -13,9 +13,8 @@
 </div>
 
 <h2>Here is the List: </h2>
-<ul>
-  <li [class]="priorityColor(currentTask)" *ngFor="let currentTask of tasks">{{currentTask.description}} <button (click) = "editTask(currentTask)"> Edit!! </button></li>
-</ul>
+<app-task-list [childTaskList]="masterTaskList" (clickSender)="editTask($event)"></app-task-list>
+
 <div *ngIf = "selectedTask">
   <h3>{{selectedTask.description}}</h3>
   <p>Task Complete? {{selectedTask.done}}</p>
